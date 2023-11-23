@@ -74,6 +74,11 @@ module "metaflow-ui" {
   standard_tags             = var.tags
 }
 
+moved {
+  from = module.metaflow-ui[0]
+  to   = module.metaflow-ui
+}
+
 module "metaflow-computation" {
   source = "./modules/computation"
 
