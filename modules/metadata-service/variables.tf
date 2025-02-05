@@ -29,6 +29,11 @@ variable "database_ssl_mode" {
   type        = string
   default     = "disable"
   description = "The database SSL mode"
+
+  validation {
+    condition     = contains(["disable", "allow", "prefer", "require", "verify-ca", "verify-full"], var.database_ssl_mode)
+    error_message = "'database_ssl_mode' must be one of 'disable', 'allow', 'prefer', 'require', 'verify-ca', 'verify-full'"
+  }
 }
 
 variable "database_ssl_cert_path" {
