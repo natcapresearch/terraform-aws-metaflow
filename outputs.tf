@@ -133,6 +133,6 @@ output "datastore_bucket_id" {
   value = module.metaflow-datastore.s3_bucket_id
 }
 
-output "elb_access_logs_bucket_id" {
-  value = var.elb_access_logging_enabled || var.elb_connection_logging_enabled ? aws_s3_bucket.elb_access_logs_bucket[0].id : null
+output "elb_access_logging_bucket_id" {
+  value = module.metaflow.elb_access_logging_bucket_id
 }
