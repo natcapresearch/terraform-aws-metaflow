@@ -133,6 +133,6 @@ output "datastore_bucket_id" {
   value = module.metaflow-datastore.s3_bucket_id
 }
 
-output "elb_access_logs_bucket_name" {
+output "elb_access_logs_bucket_id" {
   value = aws_s3_bucket.elb_access_logs_bucket[0].bucket
 }
