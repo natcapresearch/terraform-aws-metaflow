@@ -132,7 +132,3 @@ output "batch_compute_environment_security_group_id" {
 output "datastore_bucket_id" {
   value = module.metaflow-datastore.s3_bucket_id
 }
-
-output "elb_access_logging_bucket_id" {
-  value = module.metaflow.elb_access_logging_bucket_id
-}
