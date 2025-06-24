@@ -134,5 +134,5 @@ output "datastore_bucket_id" {
 }
 
 output "elb_access_logs_bucket_id" {
-  value = aws_s3_bucket.elb_access_logs_bucket[0].id
+  value = aws_s3_bucket.elb_access_logs_bucket.id
 }
