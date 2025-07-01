@@ -175,7 +175,7 @@ variable "ecs_cluster_settings" {
   default     = {}
 }
 
-variable "aws_cloudwatch_log_group_name_mds" {
+variable "cloudwatch_mds_log_group_id" {
   type        = string
   description = "The name of the Cloudwatch log group name for mds"
   default     = ""
