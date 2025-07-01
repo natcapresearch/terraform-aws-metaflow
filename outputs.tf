@@ -137,10 +137,10 @@ output "elb_access_logs_bucket_id" {
   value = aws_s3_bucket.elb_access_logs_bucket[0].bucket
 }
 
-output "cloudwatch_ui_log_group" {
+output "cloudwatch_ui_log_group_id" {
   value = module.metaflow-ui.aws_cloudwatch_log_group_name_ui
 }
 
-output "cloudwatch_mds_log_group" {
+output "cloudwatch_mds_log_group_id" {
   value = module.metaflow-metadata-service.aws_cloudwatch_log_group_name_mds
 }
