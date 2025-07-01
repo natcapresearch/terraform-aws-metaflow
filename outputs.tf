@@ -138,9 +138,9 @@ output "elb_access_logs_bucket_id" {
 }
 
 output "cloudwatch_ui_log_group_id" {
-  value = module.metaflow-ui.aws_cloudwatch_log_group_name_ui
+  value = module.metaflow-ui.cloudwatch_ui_log_group_id
 }
 
 output "cloudwatch_mds_log_group_id" {
-  value = module.metaflow-metadata-service.aws_cloudwatch_log_group_name_mds
+  value = module.metaflow-metadata-service.cloudwatch_mds_log_group_id
 }
