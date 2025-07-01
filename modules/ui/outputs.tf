@@ -9,7 +9,7 @@ output "alb_arn" {
   description = "UI ALB ARN"
 }
 
-output "aws_cloudwatch_log_group_name_ui" {
+output "cloudwatch_mds_log_group_id" {
   value = aws_cloudwatch_log_group.this.id
   description = "Name of the cloudwatch log group"
 }

@@ -38,7 +38,7 @@ output "network_load_balancer_dns_name" {
   description = "The DNS addressable name for the Network Load Balancer that accepts requests and forwards them to our Fargate MetaData service instance(s)"
 }
 
-output "aws_cloudwatch_log_group" {
-  value = aws_cloudwatch_log_group.this.name
+output "cloudwatch_mds_log_group_id" {
+  value = aws_cloudwatch_log_group.this.id
   description = "Name of the cloudwatch log group"
 }
