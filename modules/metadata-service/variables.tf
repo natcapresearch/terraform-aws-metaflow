@@ -174,3 +174,4 @@ variable "ecs_cluster_settings" {
   description = "Settings for the ECS cluster"
   default     = {}
 }
+
