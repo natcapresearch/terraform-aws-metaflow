@@ -191,7 +191,7 @@ variable "elb_connection_logging_enabled" {
   default     = false
 }
 
-variable "aws_cloudwatch_log_group_name_ui" {
+variable "aws_cloudwatch_log_group" {
   type        = string
   description = "The name of the Cloudwatch log group name for mds"
   default     = ""
