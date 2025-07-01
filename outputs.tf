@@ -142,5 +142,5 @@ output "cloudwatch_ui_log_group_id" {
 }
 
 output "cloudwatch_mds_log_group_id" {
-  value = module.metaflow-metadata-service.cloudwatch_mds_log_group_id
+  value = "module.metaflow-metadata-service.cloudwatch_mds_log_group_id"
 }
