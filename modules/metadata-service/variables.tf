@@ -174,9 +174,3 @@ variable "ecs_cluster_settings" {
   description = "Settings for the ECS cluster"
   default     = {}
 }
-
-variable "cloudwatch_mds_log_group_id" {
-  type        = string
-  description = "The name of the Cloudwatch log group name for mds"
-  default     = ""
-}
