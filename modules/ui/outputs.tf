@@ -8,3 +8,8 @@ output "alb_arn" {
   value       = aws_lb.this.arn
   description = "UI ALB ARN"
 }
+
+output "aws_cloudwatch_log_group_name_ui" {
+  value = aws_cloudwatch_log_group.this.name
+  description = "Name of the cloudwatch log group"
+}
