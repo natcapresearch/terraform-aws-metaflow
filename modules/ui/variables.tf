@@ -190,3 +190,9 @@ variable "elb_connection_logging_enabled" {
   description = "Enable connection logging for all Elastic Load Balancers"
   default     = false
 }
+
+variable "aws_cloudwatch_log_group_name_ui" {
+  type        = string
+  description = "The name of the Cloudwatch log group name for mds"
+  default     = ""
+}
