@@ -10,6 +10,6 @@ output "alb_arn" {
 }
 
 output "cloudwatch_ui_log_group_id" {
-  value = aws_cloudwatch_log_group.this.id
+  value       = aws_cloudwatch_log_group.this.id
   description = "Name of the cloudwatch log group"
 }
