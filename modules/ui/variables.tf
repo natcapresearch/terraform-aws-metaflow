@@ -190,9 +190,3 @@ variable "elb_connection_logging_enabled" {
   description = "Enable connection logging for all Elastic Load Balancers"
   default     = false
 }
-
-variable "cloudwatch_ui_log_group_id" {
-  type        = string
-  description = "The name of the Cloudwatch log group name for ui"
-  default     = ""
-}
