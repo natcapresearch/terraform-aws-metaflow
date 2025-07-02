@@ -136,3 +136,11 @@ output "datastore_bucket_id" {
 output "elb_access_logs_bucket_id" {
   value = aws_s3_bucket.elb_access_logs_bucket[0].bucket
 }
+
+output "cloudwatch_ui_log_group_id" {
+  value = module.metaflow-ui.cloudwatch_ui_log_group_id
+}
+
+output "cloudwatch_mds_log_group_id" {
+  value = module.metaflow-metadata-service.cloudwatch_mds_log_group_id
+}
