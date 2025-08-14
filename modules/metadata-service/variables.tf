@@ -100,6 +100,12 @@ variable "metadata_service_desired_count" {
   description = "Number of desired instances of the metadata service"
 }
 
+variable "metadata_service_availability_zone_rebalancing" {
+  type        = bool
+  default     = true
+  description = "Enable AZ rebalancing for the Metadata service"
+}
+
 variable "metadata_service_cpu" {
   type        = number
   default     = 512

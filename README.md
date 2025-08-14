@@ -175,7 +175,11 @@ You can find a more complete example that uses this module but also includes set
 | <a name="output_METAFLOW_SFN_IAM_ROLE"></a> [METAFLOW\_SFN\_IAM\_ROLE](#output\_METAFLOW\_SFN\_IAM\_ROLE) | IAM role for AWS Step Functions to access AWS resources (AWS Batch, AWS DynamoDB). |
 | <a name="output_api_gateway_rest_api_id_key_id"></a> [api\_gateway\_rest\_api\_id\_key\_id](#output\_api\_gateway\_rest\_api\_id\_key\_id) | API Gateway Key ID for Metadata Service. Fetch Key from AWS Console [METAFLOW\_SERVICE\_AUTH\_KEY] |
 | <a name="output_batch_compute_environment_security_group_id"></a> [batch\_compute\_environment\_security\_group\_id](#output\_batch\_compute\_environment\_security\_group\_id) | The ID of the security group attached to the Batch Compute environment. |
+| <a name="output_cloudwatch_mds_log_group_id"></a> [cloudwatch\_mds\_log\_group\_id](#output\_cloudwatch\_mds\_log\_group\_id) | n/a |
+| <a name="output_cloudwatch_ui_log_group_id"></a> [cloudwatch\_ui\_log\_group\_id](#output\_cloudwatch\_ui\_log\_group\_id) | n/a |
+| <a name="output_datastore_bucket_id"></a> [datastore\_bucket\_id](#output\_datastore\_bucket\_id) | n/a |
 | <a name="output_datastore_s3_bucket_kms_key_arn"></a> [datastore\_s3\_bucket\_kms\_key\_arn](#output\_datastore\_s3\_bucket\_kms\_key\_arn) | The ARN of the KMS key used to encrypt the Metaflow datastore S3 bucket |
+| <a name="output_elb_access_logs_bucket_id"></a> [elb\_access\_logs\_bucket\_id](#output\_elb\_access\_logs\_bucket\_id) | n/a |
 | <a name="output_metadata_svc_ecs_task_role_arn"></a> [metadata\_svc\_ecs\_task\_role\_arn](#output\_metadata\_svc\_ecs\_task\_role\_arn) | n/a |
 | <a name="output_metaflow_api_gateway_rest_api_id"></a> [metaflow\_api\_gateway\_rest\_api\_id](#output\_metaflow\_api\_gateway\_rest\_api\_id) | The ID of the API Gateway REST API we'll use to accept MetaData service requests to forward to the Fargate API instance |
 | <a name="output_metaflow_batch_container_image"></a> [metaflow\_batch\_container\_image](#output\_metaflow\_batch\_container\_image) | The ECR repo containing the metaflow batch image |

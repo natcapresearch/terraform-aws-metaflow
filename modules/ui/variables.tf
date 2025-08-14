@@ -115,6 +115,12 @@ variable "ui_backend_desired_count" {
   description = "Desired count for the UI backend service"
 }
 
+variable "ui_backend_availability_zone_rebalancing" {
+  type        = bool
+  default     = true
+  description = "Enable AZ rebalancing for the UI backend service"
+}
+
 variable "ui_static_container_image" {
   type        = string
   default     = ""
@@ -125,6 +131,12 @@ variable "ui_static_desired_count" {
   type        = number
   default     = 1
   description = "Desired count for the UI static service"
+}
+
+variable "ui_static_availability_zone_rebalancing" {
+  type        = bool
+  default     = true
+  description = "Enable AZ rebalancing for the UI backend service"
 }
 
 variable "ui_allow_list" {
