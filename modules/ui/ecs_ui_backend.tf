@@ -56,6 +56,7 @@ resource "aws_ecs_service" "ui_backend" {
   cluster         = aws_ecs_cluster.this.id
   task_definition = aws_ecs_task_definition.ui_backend.arn
   desired_count   = var.ui_backend_desired_count
+  availability_zone_rebalancing = var.ui_backend_availability_zone_rebalancing ? "ENABLED" : "DISABLED"
   launch_type     = "FARGATE"
 
   network_configuration {

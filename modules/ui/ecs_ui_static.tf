@@ -48,6 +48,7 @@ resource "aws_ecs_service" "ui_static" {
   cluster         = aws_ecs_cluster.this.id
   task_definition = aws_ecs_task_definition.ui_static.arn
   desired_count   = var.ui_static_desired_count
+  availability_zone_rebalancing = var.ui_static_availability_zone_rebalancing ? "ENABLED" : "DISABLED"
   launch_type     = "FARGATE"
 
   network_configuration {
