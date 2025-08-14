@@ -44,12 +44,12 @@ resource "aws_ecs_task_definition" "ui_static" {
 }
 
 resource "aws_ecs_service" "ui_static" {
-  name            = "${var.resource_prefix}ui_static${var.resource_suffix}"
-  cluster         = aws_ecs_cluster.this.id
-  task_definition = aws_ecs_task_definition.ui_static.arn
-  desired_count   = var.ui_static_desired_count
+  name                          = "${var.resource_prefix}ui_static${var.resource_suffix}"
+  cluster                       = aws_ecs_cluster.this.id
+  task_definition               = aws_ecs_task_definition.ui_static.arn
+  desired_count                 = var.ui_static_desired_count
   availability_zone_rebalancing = var.ui_static_availability_zone_rebalancing ? "ENABLED" : "DISABLED"
-  launch_type     = "FARGATE"
+  launch_type                   = "FARGATE"
 
   network_configuration {
     security_groups  = [aws_security_group.fargate_security_group.id]
