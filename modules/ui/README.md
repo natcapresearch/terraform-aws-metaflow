@@ -86,8 +86,10 @@ The services are deployed behind an AWS ALB, and the module will output the ALB 
 | <a name="input_subnet1_id"></a> [subnet1\_id](#input\_subnet1\_id) | First private subnet used for availability zone redundancy | `string` | n/a | yes |
 | <a name="input_subnet2_id"></a> [subnet2\_id](#input\_subnet2\_id) | Second private subnet used for availability zone redundancy | `string` | n/a | yes |
 | <a name="input_ui_allow_list"></a> [ui\_allow\_list](#input\_ui\_allow\_list) | A list of CIDRs the UI will be available to | `list(string)` | `[]` | no |
+| <a name="input_ui_backend_availability_zone_rebalancing"></a> [ui\_backend\_availability\_zone\_rebalancing](#input\_ui\_backend\_availability\_zone\_rebalancing) | Enable AZ rebalancing for the UI backend service | `bool` | `true` | no |
 | <a name="input_ui_backend_container_image"></a> [ui\_backend\_container\_image](#input\_ui\_backend\_container\_image) | Container image for UI backend | `string` | `""` | no |
 | <a name="input_ui_backend_desired_count"></a> [ui\_backend\_desired\_count](#input\_ui\_backend\_desired\_count) | Desired count for the UI backend service | `number` | `1` | no |
+| <a name="input_ui_static_availability_zone_rebalancing"></a> [ui\_static\_availability\_zone\_rebalancing](#input\_ui\_static\_availability\_zone\_rebalancing) | Enable AZ rebalancing for the UI backend service | `bool` | `true` | no |
 | <a name="input_ui_static_container_image"></a> [ui\_static\_container\_image](#input\_ui\_static\_container\_image) | Container image for the UI frontend app | `string` | `""` | no |
 | <a name="input_ui_static_desired_count"></a> [ui\_static\_desired\_count](#input\_ui\_static\_desired\_count) | Desired count for the UI static service | `number` | `1` | no |
 
@@ -97,4 +99,5 @@ The services are deployed behind an AWS ALB, and the module will output the ALB 
 |------|-------------|
 | <a name="output_alb_arn"></a> [alb\_arn](#output\_alb\_arn) | UI ALB ARN |
 | <a name="output_alb_dns_name"></a> [alb\_dns\_name](#output\_alb\_dns\_name) | UI ALB DNS name |
+| <a name="output_cloudwatch_ui_log_group_id"></a> [cloudwatch\_ui\_log\_group\_id](#output\_cloudwatch\_ui\_log\_group\_id) | Name of the cloudwatch log group |
 <!-- END_TF_DOCS -->
