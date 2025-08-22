@@ -126,6 +126,7 @@ module "metaflow-computation" {
   compute_environment_max_vcpus               = var.compute_environment_max_vcpus
   compute_environment_min_vcpus               = var.compute_environment_min_vcpus
   compute_environment_egress_cidr_blocks      = var.compute_environment_egress_cidr_blocks
+  compute_environment_allocation_strategy     = var.compute_environment_allocation_strategy
   iam_partition                               = var.iam_partition
   metaflow_vpc_id                             = var.vpc_id
   subnet1_id                                  = var.subnet1_id
