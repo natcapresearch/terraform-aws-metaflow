@@ -36,6 +36,12 @@ variable "compute_environment_egress_cidr_blocks" {
   description = "CIDR blocks to which egress is allowed from the Batch Compute environment's security group"
 }
 
+variable "compute_environment_allocation_strategy" {
+  type        = string
+  default     = "BEST_FIT"
+  description = "The allocation strategy for the Batch Compute environment"
+}
+
 variable "iam_partition" {
   type        = string
   default     = "aws"
