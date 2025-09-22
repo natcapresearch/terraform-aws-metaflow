@@ -82,12 +82,6 @@ variable "iam_partition" {
   description = "IAM Partition (Select aws-us-gov for AWS GovCloud, otherwise leave as is)"
 }
 
-variable "is_gov" {
-  type        = bool
-  default     = false
-  description = "Set to true if IAM partition is 'aws-us-gov'"
-}
-
 variable "metadata_service_container_image" {
   type        = string
   default     = ""

@@ -131,7 +131,7 @@ data "aws_iam_policy_document" "step_functions_dynamodb" {
     ]
 
     resources = [
-      join("", [for arn in aws_dynamodb_table.step_functions_state_table.*.arn : arn])
+      join("", [for arn in aws_dynamodb_table.step_functions_state_table[*].arn : arn])
     ]
   }
 }

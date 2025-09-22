@@ -53,7 +53,7 @@ data "aws_iam_policy_document" "custom_s3_batch" {
 
     resources = [
       "${var.s3_bucket_arn}/*",
-      "${var.s3_bucket_arn}"
+      var.s3_bucket_arn
     ]
   }
 }

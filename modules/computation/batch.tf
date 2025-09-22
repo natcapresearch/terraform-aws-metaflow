@@ -72,7 +72,7 @@ resource "aws_batch_compute_environment" "this" {
     */
     create_before_destroy = true
     # To ensure terraform redeploys do not silently overwrite an up to date desired_vcpus that metaflow may modify
-    ignore_changes = [compute_resources.0.desired_vcpus]
+    ignore_changes = [compute_resources[0].desired_vcpus]
   }
 }
 

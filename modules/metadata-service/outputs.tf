@@ -14,7 +14,7 @@ output "api_gateway_rest_api_id" {
 }
 
 output "api_gateway_rest_api_id_key_id" {
-  value       = join("", [for id in aws_api_gateway_api_key.this.*.id : id])
+  value       = join("", [for id in aws_api_gateway_api_key.this[*].id : id])
   description = "API Gateway Key ID for Metadata Service. Fetch Key from AWS Console [METAFLOW_SERVICE_AUTH_KEY]"
 }
 
