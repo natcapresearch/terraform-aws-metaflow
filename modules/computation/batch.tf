@@ -6,7 +6,8 @@ resource "aws_batch_compute_environment" "this" {
      just used compute_environment_name, then there would be a conflict when we went to stand up the new
      compute_environment that had the modifications applied and the process would fail.
   */
-  compute_environment_name_prefix = local.compute_env_prefix_name
+  # AWS provider >= 6.0 changes the name of this parameter to name_prefix
+  name_prefix = local.compute_env_prefix_name
 
   # Give permissions so the batch service can make API calls.
   service_role = aws_iam_role.batch_execution_role.arn
