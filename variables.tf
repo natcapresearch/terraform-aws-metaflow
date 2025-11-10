@@ -60,7 +60,7 @@ variable "db_migrate_lambda_zip_file" {
 variable "db_migrate_lambda_runtime" {
   type        = string
   description = "Runtime version for the DB migrate lambda"
-  default     = "python3.7"
+  default     = "python3.13"
 }
 
 variable "db_parameters" {

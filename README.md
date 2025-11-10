@@ -118,7 +118,7 @@ You can find a more complete example that uses this module but also includes set
 | <a name="input_db_identifier_prefix"></a> [db\_identifier\_prefix](#input\_db\_identifier\_prefix) | Identifier prefix for the RDS instance | `string` | `""` | no |
 | <a name="input_db_instance_tags"></a> [db\_instance\_tags](#input\_db\_instance\_tags) | A map of additional tags for the DB instance | `map(string)` | `{}` | no |
 | <a name="input_db_instance_type"></a> [db\_instance\_type](#input\_db\_instance\_type) | RDS instance type to launch for PostgresQL database. | `string` | `"db.t2.small"` | no |
-| <a name="input_db_migrate_lambda_runtime"></a> [db\_migrate\_lambda\_runtime](#input\_db\_migrate\_lambda\_runtime) | Runtime version for the DB migrate lambda | `string` | `"python3.7"` | no |
+| <a name="input_db_migrate_lambda_runtime"></a> [db\_migrate\_lambda\_runtime](#input\_db\_migrate\_lambda\_runtime) | Runtime version for the DB migrate lambda | `string` | `"python3.13"` | no |
 | <a name="input_db_migrate_lambda_zip_file"></a> [db\_migrate\_lambda\_zip\_file](#input\_db\_migrate\_lambda\_zip\_file) | Output path for the zip file containing the DB migrate lambda | `string` | `null` | no |
 | <a name="input_db_multi_az"></a> [db\_multi\_az](#input\_db\_multi\_az) | Enable Multi-AZ for the RDS instance | `bool` | `true` | no |
 | <a name="input_db_parameters"></a> [db\_parameters](#input\_db\_parameters) | A map of parameters to apply to the DB instance | `map(string)` | `{}` | no |
