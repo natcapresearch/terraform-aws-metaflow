@@ -94,7 +94,7 @@ If the `access_list_cidr_blocks` variable is set, only traffic originating from 
 | <a name="input_database_ssl_root_cert"></a> [database\_ssl\_root\_cert](#input\_database\_ssl\_root\_cert) | The database SSL root certificate | `string` | `""` | no |
 | <a name="input_database_username"></a> [database\_username](#input\_database\_username) | The database username | `string` | n/a | yes |
 | <a name="input_datastore_s3_bucket_kms_key_arn"></a> [datastore\_s3\_bucket\_kms\_key\_arn](#input\_datastore\_s3\_bucket\_kms\_key\_arn) | The ARN of the KMS key used to encrypt the Metaflow datastore S3 bucket | `string` | n/a | yes |
-| <a name="input_db_migrate_lambda_runtime"></a> [db\_migrate\_lambda\_runtime](#input\_db\_migrate\_lambda\_runtime) | Runtime version for the DB migrate lambda | `string` | `"python3.7"` | no |
+| <a name="input_db_migrate_lambda_runtime"></a> [db\_migrate\_lambda\_runtime](#input\_db\_migrate\_lambda\_runtime) | Runtime version for the DB migrate lambda | `string` | `"python3.13"` | no |
 | <a name="input_db_migrate_lambda_zip_file"></a> [db\_migrate\_lambda\_zip\_file](#input\_db\_migrate\_lambda\_zip\_file) | Output path for the zip file containing the DB migrate lambda | `string` | `null` | no |
 | <a name="input_ecs_cluster_settings"></a> [ecs\_cluster\_settings](#input\_ecs\_cluster\_settings) | Settings for the ECS cluster | `map(string)` | `{}` | no |
 | <a name="input_fargate_execution_role_arn"></a> [fargate\_execution\_role\_arn](#input\_fargate\_execution\_role\_arn) | The IAM role that grants access to ECS and Batch services which we'll use as our Metadata Service API's execution\_role for our Fargate instance | `string` | n/a | yes |
