@@ -1,3 +1,5 @@
+data "aws_canonical_user_id" "current" {}
+
 resource "aws_s3_bucket" "this" {
   bucket        = local.s3_bucket_name
   force_destroy = var.force_destroy_s3_bucket
@@ -13,7 +15,20 @@ resource "aws_s3_bucket" "this" {
 
 resource "aws_s3_bucket_acl" "this" {
   bucket = aws_s3_bucket.this.id
-  acl    = "private"
+
+  access_control_policy {
+    grant {
+      grantee {
+        id   = data.aws_canonical_user_id.current.id
+        type = "CanonicalUser"
+      }
+      permission = "FULL_CONTROL"
+    }
+
+    owner {
+      id = data.aws_canonical_user_id.current.id
+    }
+  }
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
