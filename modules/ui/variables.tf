@@ -24,18 +24,6 @@ variable "fargate_execution_role_arn" {
   description = "This role allows Fargate to pull container images and logs. We'll use it as execution_role for our Fargate task"
 }
 
-variable "iam_partition" {
-  type        = string
-  default     = "aws"
-  description = "IAM Partition (Select aws-us-gov for AWS GovCloud, otherwise leave as is)"
-}
-
-variable "is_gov" {
-  type        = bool
-  default     = false
-  description = "Set to true if IAM partition is 'aws-us-gov'"
-}
-
 variable "metaflow_vpc_id" {
   type        = string
   description = "VPC to deploy services into"

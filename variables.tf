@@ -117,11 +117,13 @@ variable "enable_step_functions" {
 }
 
 variable "resource_prefix" {
+  type        = string
   default     = "metaflow"
   description = "string prefix for all resources"
 }
 
 variable "resource_suffix" {
+  type        = string
   default     = ""
   description = "string suffix for all resources"
 }

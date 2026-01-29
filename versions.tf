@@ -8,6 +8,10 @@ terraform {
       # `v3.16.0` which is only a minor upgrade.
       version = ">= 3.38.0"
     }
+    time = {
+      source  = "hashicorp/time"
+      version = "~> 0.13.0"
+    }
   }
   required_version = ">= 0.13"
 }

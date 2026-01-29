@@ -11,11 +11,6 @@ locals {
 
   # Name of Fargate security group used by the Metadata Service
   metadata_service_security_group_name = "${var.resource_prefix}metadata-service-security-group${var.resource_suffix}"
-  metadata_service_container_image = (
-    var.metadata_service_container_image == "" ?
-    module.metaflow-common.default_metadata_service_container_image :
-    var.metadata_service_container_image
-  )
 
   api_gateway_endpoint_configuration_type = local.is_gov ? "REGIONAL" : "EDGE"
   api_gateway_key_name                    = "${var.resource_prefix}key${var.resource_suffix}"
@@ -26,5 +21,5 @@ locals {
   db_migrate_lambda_name       = "${var.resource_prefix}db_migrate${var.resource_suffix}"
   lambda_ecs_execute_role_name = "${var.resource_prefix}lambda_ecs_execute${var.resource_suffix}"
 
-  cloudwatch_logs_arn_prefix = "arn:${var.iam_partition}:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}"
+  cloudwatch_logs_arn_prefix = "arn:${var.iam_partition}:logs:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}"
 }
