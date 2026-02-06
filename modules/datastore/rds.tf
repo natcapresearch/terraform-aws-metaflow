@@ -4,6 +4,8 @@
  is how we define this.
 */
 resource "aws_db_subnet_group" "this" {
+  count = var.enable_rds ? 1 : 0
+
   name       = local.pg_subnet_group_name
   subnet_ids = [var.subnet1_id, var.subnet2_id]
 
@@ -20,6 +22,8 @@ resource "aws_db_subnet_group" "this" {
  Define a new firewall for our database instance.
 */
 resource "aws_security_group" "rds_security_group" {
+  count = var.enable_rds ? 1 : 0
+
   name   = local.rds_security_group_name
   vpc_id = var.metaflow_vpc_id
 
@@ -43,6 +47,8 @@ resource "aws_security_group" "rds_security_group" {
 }
 
 resource "random_password" "this" {
+  count = var.enable_rds ? 1 : 0
+
   length  = 64
   special = true
   # redefines the `special` variable by removing the `@`
@@ -59,21 +65,22 @@ locals {
 }
 
 resource "aws_rds_cluster" "this" {
-  count              = local.use_aurora ? 1 : 0
+  count = var.enable_rds && local.use_aurora ? 1 : 0
+
   cluster_identifier = local.rds_db_identifier
   kms_key_id         = aws_kms_key.rds.arn
   engine             = var.db_engine
 
   database_name        = var.db_name
   master_username      = var.db_username
-  master_password      = random_password.this.result
-  db_subnet_group_name = aws_db_subnet_group.this.id
+  master_password      = random_password.this[0].result
+  db_subnet_group_name = aws_db_subnet_group.this[0].id
 
   engine_version    = var.db_engine_version
   storage_encrypted = true
 
   final_snapshot_identifier = local.rds_final_snapshot_identifier # Snapshot upon delete
-  vpc_security_group_ids    = [aws_security_group.rds_security_group.id]
+  vpc_security_group_ids    = [aws_security_group.rds_security_group[0].id]
 
   apply_immediately            = var.apply_immediately
   preferred_maintenance_window = length(var.maintenance_window) > 0 ? var.maintenance_window : null
@@ -89,7 +96,8 @@ resource "aws_rds_cluster" "this" {
 }
 
 resource "aws_rds_cluster_instance" "cluster_instances" {
-  count              = local.use_aurora ? 1 : 0
+  count = var.enable_rds && local.use_aurora ? 1 : 0
+
   identifier         = "${local.rds_db_identifier}-${count.index}"
   cluster_identifier = aws_rds_cluster.this[0].id
   instance_class     = var.db_instance_type
@@ -105,7 +113,8 @@ resource "aws_rds_cluster_instance" "cluster_instances" {
  Define rds db instance.
 */
 resource "aws_db_instance" "this" {
-  count                     = local.use_aurora ? 0 : 1
+  count = var.enable_rds && ! local.use_aurora ? 1 : 0
+
   publicly_accessible       = false
   allocated_storage         = 20    # Allocate 20GB
   storage_type              = "gp2" # general purpose SSD
@@ -118,12 +127,12 @@ resource "aws_db_instance" "this" {
   db_name                   = var.db_name             # unique id for CLI commands (name of DB table which is why we're not adding the prefix as no conflicts will occur and the API expects this table name)
   snapshot_identifier       = var.db_snapshot_identifier
   username                  = var.db_username
-  password                  = random_password.this.result
-  db_subnet_group_name      = aws_db_subnet_group.this.id
+  password                  = random_password.this[0].result
+  db_subnet_group_name      = aws_db_subnet_group.this[0].id
   max_allocated_storage     = 1000 # Upper limit of automatic scaled storage
   multi_az                  = var.db_multi_az
   final_snapshot_identifier = local.rds_final_snapshot_identifier # Snapshot upon delete
-  vpc_security_group_ids    = [aws_security_group.rds_security_group.id]
+  vpc_security_group_ids    = [aws_security_group.rds_security_group[0].id]
   ca_cert_identifier        = var.ca_cert_identifier
   parameter_group_name      = length(var.db_parameters) > 0 ? aws_db_parameter_group.this[0].name : "default.${local.parameter_group_family}"
 
@@ -143,7 +152,8 @@ resource "aws_db_instance" "this" {
 }
 
 resource "aws_db_parameter_group" "this" {
-  count  = length(var.db_parameters) > 0 ? 1 : 0
+  count = var.enable_rds && length(var.db_parameters) > 0 ? 1 : 0
+
   name   = "${local.rds_db_identifier}-${local.parameter_group_family}"
   family = local.parameter_group_family
 
@@ -160,3 +170,4 @@ resource "aws_db_parameter_group" "this" {
     create_before_destroy = true
   }
 }
+

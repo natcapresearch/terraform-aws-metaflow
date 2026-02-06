@@ -14,7 +14,7 @@ output "database_name" {
 }
 
 output "database_password" {
-  value       = random_password.this.result
+  value       = var.enable_rds ? random_password.this[0].result : null
   description = "The database password"
 }
 
@@ -29,7 +29,7 @@ output "datastore_s3_bucket_kms_key_arn" {
 }
 
 output "rds_master_instance_endpoint" {
-  value       = local.use_aurora ? aws_rds_cluster.this[0].endpoint : aws_db_instance.this[0].endpoint
+  value       = var.enable_rds ? (local.use_aurora ? aws_rds_cluster.this[0].endpoint : aws_db_instance.this[0].endpoint) : ""
   description = "The database connection endpoint in address:port format"
 }
 

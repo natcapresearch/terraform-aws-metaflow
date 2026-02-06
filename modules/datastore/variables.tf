@@ -1,3 +1,9 @@
+variable "enable_rds" {
+  type        = bool
+  description = "Enable creation of RDS resources."
+  default     = true
+}
+
 variable "db_snapshot_identifier" {
   type        = string
   description = "The snapshot identifier to restore the RDS instance from, or leave blank to create a new instance"
