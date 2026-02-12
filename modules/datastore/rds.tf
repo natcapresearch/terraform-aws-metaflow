@@ -80,6 +80,8 @@ resource "aws_rds_cluster" "this" {
   storage_encrypted = true
 
   final_snapshot_identifier = local.rds_final_snapshot_identifier # Snapshot upon delete
+  deletion_protection       = var.db_deletion_protection
+  delete_automated_backups  = false
   vpc_security_group_ids    = [aws_security_group.rds_security_group[0].id]
 
   apply_immediately            = var.apply_immediately
@@ -113,7 +115,7 @@ resource "aws_rds_cluster_instance" "cluster_instances" {
  Define rds db instance.
 */
 resource "aws_db_instance" "this" {
-  count = var.enable_rds && ! local.use_aurora ? 1 : 0
+  count = var.enable_rds && !local.use_aurora ? 1 : 0
 
   publicly_accessible       = false
   allocated_storage         = 20    # Allocate 20GB
@@ -132,6 +134,8 @@ resource "aws_db_instance" "this" {
   max_allocated_storage     = 1000 # Upper limit of automatic scaled storage
   multi_az                  = var.db_multi_az
   final_snapshot_identifier = local.rds_final_snapshot_identifier # Snapshot upon delete
+  deletion_protection       = var.db_deletion_protection
+  delete_automated_backups  = false
   vpc_security_group_ids    = [aws_security_group.rds_security_group[0].id]
   ca_cert_identifier        = var.ca_cert_identifier
   parameter_group_name      = length(var.db_parameters) > 0 ? aws_db_parameter_group.this[0].name : "default.${local.parameter_group_family}"

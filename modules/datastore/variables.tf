@@ -4,6 +4,12 @@ variable "enable_rds" {
   default     = true
 }
 
+variable "db_deletion_protection" {
+  type        = bool
+  description = "Enable RDS deletion_protection."
+  default     = true
+}
+
 variable "db_snapshot_identifier" {
   type        = string
   description = "The snapshot identifier to restore the RDS instance from, or leave blank to create a new instance"
