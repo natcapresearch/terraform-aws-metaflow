@@ -128,8 +128,11 @@ resource "aws_lambda_function" "db_migrate_lambda" {
     }
   }
 
+  replace_security_groups_on_destroy = true
+
   vpc_config {
     subnet_ids         = [var.subnet1_id, var.subnet2_id]
     security_group_ids = [aws_security_group.metadata_service_security_group.id]
   }
 }
+
